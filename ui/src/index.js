@@ -4,6 +4,10 @@ import { Provider } from 'react-redux';
 
 import store from "./store";
 import App from './App';
+import {fetchElementChildren} from "./elements/elementsActions";
+
+
+store.dispatch(fetchElementChildren('root'));
 
 ReactDOM.render(
   <Provider store={store}>

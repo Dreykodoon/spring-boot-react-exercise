@@ -1,7 +1,18 @@
-const ThumbnailsView = () => {
+import { connect } from 'react-redux';
+
+
+const ThumbnailsView = ({root}) => {
+  console.log(root)
+
   return (
     <div>Thumbnails</div>
   );
 }
 
-export default ThumbnailsView;
+const mapStateToProps = (state) => {
+  return {
+    root: state.elements.root,
+  }
+}
+
+export default connect(mapStateToProps, null)(ThumbnailsView);
