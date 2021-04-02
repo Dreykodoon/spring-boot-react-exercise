@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS content;
+
+CREATE TABLE content (
+    id INT PRIMARY KEY,
+    name VARCHAR(250) UNIQUE NOT NULL,
+    title VARCHAR(250) NOT NULL,
+    description VARCHAR(250) DEFAULT NULL,
+    type VARCHAR(250) NOT NULL,
+    mimetype VARCHAR(250) DEFAULT NULL,
+    url VARCHAR(250) DEFAULT NULL,
+    parent_id INT DEFAULT NULL
+);
