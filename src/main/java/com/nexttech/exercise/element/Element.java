@@ -4,7 +4,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "CONTENT")
-@NamedQuery(query = "select e from Element e", name = "query_find_all_elements")
+@NamedQueries(value = {
+        @NamedQuery(query = "select e from Element e where e.parentId = :parentId", name = "query_element_children"),
+        @NamedQuery(query = "select e from Element e where e.parentId is null", name = "query_root_element_children")
+})
 public class Element {
 
     @Id
@@ -16,9 +19,9 @@ public class Element {
     private String mimetype;
     private String url;
     @Column(name = "parent_id")
-    private String parentId;
+    private Long parentId;
 
-    public Element(Long id, String name, String title, String description, String type, String mimetype, String url, String parentId) {
+    public Element(Long id, String name, String title, String description, String type, String mimetype, String url, Long parentId) {
         this.id = id;
         this.name = name;
         this.title = title;
@@ -87,11 +90,11 @@ public class Element {
         this.url = url;
     }
 
-    public String getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 }

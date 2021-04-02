@@ -13,8 +13,14 @@ public class ElementDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Element> getElements() {
-        TypedQuery<Element> query = entityManager.createNamedQuery("query_find_all_elements", Element.class);
+    public List<Element> getElementChildren(Long elementId) {
+        TypedQuery<Element> query = entityManager.createNamedQuery("query_element_children", Element.class);
+        query.setParameter("parentId", elementId);
+        return query.getResultList();
+    }
+
+    public List<Element> getRootElementChildren() {
+        TypedQuery<Element> query = entityManager.createNamedQuery("query_root_element_children", Element.class);
         return query.getResultList();
     }
 }

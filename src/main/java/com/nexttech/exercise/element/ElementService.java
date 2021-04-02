@@ -11,7 +11,10 @@ public class ElementService {
     @Autowired
     private ElementDAO elementDAO;
 
-    public List<Element> getElements() {
-        return elementDAO.getElements();
+    public List<Element> getElementChildren(String elementId) {
+        if (elementId.equals("root")) {
+            return elementDAO.getRootElementChildren();
+        }
+        return elementDAO.getElementChildren(Long.parseLong(elementId));
     }
 }
