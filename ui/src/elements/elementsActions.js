@@ -1,12 +1,13 @@
 import axios from "axios";
+import {getElementId} from "./treeViewParser";
 
 
 export const FETCH_ELEMENT_CHILDREN = 'FETCH_ELEMENT_CHILDREN';
 
-export const fetchElementChildren = (elementId) => {
+export const fetchElementChildren = (treeViewElemId, expand) => {
   return (dispatch) => {
-    // TODO url for non-root element needs work
-    const url = elementId === null ? '/api/document/root' : `/api/document/${elementId}`;
+    const url = treeViewElemId === null
+      ? '/api/document/root' : `/api/document/${getElementId(treeViewElemId)}`;
 
     return axios.get(url)
       .then((response) => {
@@ -14,7 +15,8 @@ export const fetchElementChildren = (elementId) => {
           type: FETCH_ELEMENT_CHILDREN,
           data: {
             children: response.data,
-            parentId: elementId,
+            treeViewParentId: treeViewElemId,
+            expand,
           },
         })
       })

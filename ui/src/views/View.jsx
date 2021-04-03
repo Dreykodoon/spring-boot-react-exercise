@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import {THUMBNAIL_VIEW, TREE_VIEW} from "./constants";
-import ThumbnailsView from "../components/ThumbnailsView";
-import TreeView from "../components/TreeView";
+import ThumbnailsView from "../thumbnails/ThumbnailsView";
+import TreeView from "../tree/TreeView";
 
 
 const View = ({activeView}) => {
