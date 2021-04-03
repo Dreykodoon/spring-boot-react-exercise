@@ -3,7 +3,7 @@ import {DOCUMENT} from "../elements/constants";
 import Document from "./Document";
 import Asset from "./Asset";
 import {fetchElementChildren} from "../elements/elementsActions";
-import {getElementId} from "../elements/treeViewParser";
+import {getElementId, getElementLevel} from "../elements/treeViewParser";
 
 
 const TreeView = ({treeView, elementsMap, expandCollapseDocumentHandler}) => {
@@ -22,6 +22,7 @@ const TreeView = ({treeView, elementsMap, expandCollapseDocumentHandler}) => {
           />
           : <Asset
             key={treeViewElemId}
+            treeViewElemId={treeViewElemId}
             title={element.title}
             mimetype={element.mimetype}
           />;

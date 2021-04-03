@@ -8,3 +8,8 @@ export const getElementId = (treeViewElemId) => {
   const ids = treeViewElemId.split('/');
   return ids[ids.length - 1];
 }
+
+export const getElementLevel = (treeViewElemId) => {
+  const ids = treeViewElemId.split('/');
+  return ids.length - 1;
+}

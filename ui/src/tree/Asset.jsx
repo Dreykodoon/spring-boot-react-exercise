@@ -1,6 +1,10 @@
-const Asset = ({title, mimetype}) => {
+import {getElementLevel} from "../elements/treeViewParser";
+
+const Asset = ({title, mimetype, treeViewElemId}) => {
+  const level = getElementLevel(treeViewElemId);
+
   return (
-    <div>
+    <div style={{paddingLeft: `${25 * level}px`}}>
       {`${title}.${mimetype}`}
     </div>
   );
