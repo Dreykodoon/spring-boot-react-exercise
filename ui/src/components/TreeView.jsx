@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 
-const TreeView = ({root}) => {
-  console.log(root);
+const TreeView = ({elements}) => {
+  console.log(elements);
 
   return (
     <div>Tree</div>
@@ -11,7 +11,7 @@ const TreeView = ({root}) => {
 
 const mapStateToProps = (state) => {
   return {
-    root: state.elements.root,
+    elements: state.elements,
   }
 }
 

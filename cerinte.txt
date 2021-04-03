@@ -1,0 +1,38 @@
+Pe partea de backend:
+1. o aplicatie spring boot generate cu spring initializer care foloseste un h2 db cu niste date deja adaugate.
+(spring data, spring cache pe serviciul NodeService, cu un ttl  de 1 min)
+2. in db exista o tabela numita content: id, name, title, description, type, mimetype, url, parent_id : 
+	daca e folder type equals folder, iar mimetype / url e null, 
+	daca e asset type equals asset iar mimetype este de tip jpg, pdf, iar url este definit
+3. un endpoint /api/document/{id} -> care-ti returneaza copii nodului id -> daca nodul id este root atunci returneaza elementele care nu au parent_id
+
+
+Pe partea de front-end:
+1. o aplicatie React ce foloseste Redux pentru a pastra datele
+2. O pagina ce contine o lista de elemente de tip card si un switch button care poate schimba view-ul din card in tree view-ul
+3. cand se apasa pe un folder
+	a. in card view se intra in folderul respectiv si se vor afisa doar copii folderului
+	b. in tree view se face expand la folder vezi https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_treeview
+	
+4. pe card view se vede un thumbnail, numele si o parte din descriere
+5. pe tree view se vede un thumbnail si numele
+6. daca se apasa pe un document: se va afisa contentul de la url intr-un iframe sau un div simplu
+7. poti pune CSS
+
+
+-----------------
+
+solutie FE:
+
+* tine info despre elemente intr-un obiect, unde cheile obiectului sunt ID-urile elementelor
+* daca e document, ii adaug o proprietate "_previouslyExpanded" de tip boolean; daca e false, atunci fac fetch la date din server
+* pentru tree view:
+	- starea va fi reprezentata de un array ce contine stringuri de tipul: `/${id}/${id}...`
+	- daca doresc sa fac expand la un document, am acces usor la id-ul lui (fiind ultimul id din string), iar copiii ii adaug in array fix dupa intrarea actuala
+	- daca doresc sa fac collapse, elimin toate elementele din array care incep cu path-ul curent si sunt mai lungi decat acel path
+* pentru thumbnails:
+	- voi avea id-ul documentului parinte (sau null daca vad ce contine root-ul)
+	- un array the id-uri de tipul `${id}`
+	- voi avea un buton care cand il apas, ma duce mai sus in ierarhie. cand apas butonul, caut elementul cu id = id_parinte si vad ce parinte are acel element. Apoi caut toate elementele care au parinte parintele lui si le pun intr-un array nou. nu uita sa updatatezi si id-ul butonului
+	- cand apesi pe un document, faci fetch la continut daca trebuie, daca nu creezi un nou array in care pui toate elementele care au parent-id acest document. nu uita sa updatatezi si id-ul butonului
+	

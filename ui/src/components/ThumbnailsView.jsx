@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 
-const ThumbnailsView = ({root}) => {
-  console.log(root)
+const ThumbnailsView = ({elements}) => {
+  console.log(elements)
 
   return (
     <div>Thumbnails</div>
@@ -11,7 +11,7 @@ const ThumbnailsView = ({root}) => {
 
 const mapStateToProps = (state) => {
   return {
-    root: state.elements.root,
+    elements: state.elements,
   }
 }
 
