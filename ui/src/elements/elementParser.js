@@ -1,4 +1,4 @@
-import {FOLDER} from "./constants";
+import {DOCUMENT} from "./constants";
 
 export const parseElements = (elementsArray) => {
   const parsedElements = {};
@@ -11,7 +11,7 @@ export const parseElements = (elementsArray) => {
 
 export const enhanceDocumentProps = (elementsArray) => {
   return elementsArray.map((element) => {
-    if (element.type === FOLDER) {
+    if (element.type === DOCUMENT) {
       element._previouslyExpanded = false;
     }
     return element;

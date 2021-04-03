@@ -1,4 +1,4 @@
 /* ====================== Element types ====================== */
 
-export const FOLDER = 'FOLDER';
-export const ASSET = 'ASSET';
+export const DOCUMENT = 'document';
+export const ASSET = 'asset';
