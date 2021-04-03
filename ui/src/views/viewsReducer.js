@@ -5,7 +5,7 @@ const INIT_STATE = {
   active: TREE_VIEW,
 }
 
-export default function viewsReducer(state = [], action) {
+export default function viewsReducer(state = INIT_STATE, action) {
   switch (action.type) {
     case CHANGE_VIEW: {
       return {
@@ -13,6 +13,6 @@ export default function viewsReducer(state = [], action) {
       }
     }
     default:
-      return INIT_STATE;
+      return state;
   }
 }

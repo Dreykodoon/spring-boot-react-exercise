@@ -1,17 +1,23 @@
 import { connect } from 'react-redux';
 
 
-const TreeView = ({elements}) => {
-  console.log(elements);
-
+const TreeView = ({treeView, elementsMap}) => {
   return (
-    <div>Tree</div>
+    <div>
+      Tree
+      {treeView.map((treeViewElemId) => (
+        <div key={treeViewElemId}>
+          {elementsMap[treeViewElemId.substring(1)].name}
+        </div>
+      ))}
+    </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    elements: state.elements,
+    treeView: state.elements.treeView,
+    elementsMap: state.elements.elementsMap,
   }
 }
 

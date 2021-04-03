@@ -11,7 +11,7 @@ const ThumbnailsView = ({elements}) => {
 
 const mapStateToProps = (state) => {
   return {
-    elements: state.elements,
+    elements: state.elements.elementsMap,
   }
 }
 

@@ -7,7 +7,7 @@ import App from './App';
 import {fetchElementChildren} from "./elements/elementsActions";
 
 
-store.dispatch(fetchElementChildren('root'));
+store.dispatch(fetchElementChildren(null));
 
 ReactDOM.render(
   <Provider store={store}>
