@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
 
 
-const ThumbnailsView = ({elements}) => {
-  console.log(elements)
-
+const ThumbnailsView = () => {
   return (
-    <div>Thumbnails</div>
+    <div>Thumbnails view. Work in progress</div>
   );
 }
 

@@ -30,7 +30,7 @@ solutie FE:
 	- starea va fi reprezentata de un array ce contine stringuri de tipul: `/${id}/${id}...`
 	- daca doresc sa fac expand la un document, am acces usor la id-ul lui (fiind ultimul id din string), iar copiii ii adaug in array fix dupa intrarea actuala
 	- daca doresc sa fac collapse, elimin toate elementele din array care incep cu path-ul curent si sunt mai lungi decat acel path
-* pentru thumbnails:
+* pentru thumbnails view:
 	- voi avea id-ul documentului parinte (sau null daca vad ce contine root-ul)
 	- un array the id-uri de tipul `${id}`
 	- voi avea un buton care cand il apas, ma duce mai sus in ierarhie. cand apas butonul, caut elementul cu id = id_parinte si vad ce parinte are acel element. Apoi caut toate elementele care au parinte parintele lui si le pun intr-un array nou. nu uita sa updatatezi si id-ul butonului
