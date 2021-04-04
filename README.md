@@ -7,11 +7,13 @@ Running the project
 * to start back-end, run:
     * mvn clean install
     * mvn spring-boot:run
+    * server is accessible at localhost:8080
     
 * to start the front-end:
     * cd ui
     * yarn
     * yarn start
+    * FE dev server is accessible at localhost:3001
     
 Observations
 * check "cerinte.txt" for theoretical solution to front-end requirements
